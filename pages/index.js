@@ -39,7 +39,7 @@ export default function Home() {
     setIsLogin(true)
     return response.data;
   }catch(error){
-    alert('Wrong username or password')
+    alert('Check username or password')
   }
     
   }
