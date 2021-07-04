@@ -1,10 +1,12 @@
 import avgCookiesPerHour from '/data'
-// console.log(avgCookiesPerHour)
-// console.log(avgCookiesPerHour[0])
-// console.log(avgCookiesPerHour[0].avgCookiesPerHour)
-// console.log(avgCookiesPerHour[0].location)
+console.log(avgCookiesPerHour)
+console.log(avgCookiesPerHour[0])
+console.log(avgCookiesPerHour[0].avgCookiesPerHour)
+console.log(avgCookiesPerHour[0].location)
 
 export default function ReportTable({ stands }) {
+    console.log(stands[0])
+    console.log(stands)
     
     return  (
     <div>
@@ -38,10 +40,10 @@ export default function ReportTable({ stands }) {
                         {stands[0].map(cookie =>
                             <tr key={cookie.location}>
                                 <td className="border-2"> {cookie.location} </td>
-                                {cookie.avgCookiesPerHour.map((value,i) =>
+                                {cookie.hourly_sales.map((value,i) =>
                                     <td key={'value'+i}> {value} </td>
                                 )}
-                                <td>{cookie.avgCookiesPerHour.reduce((a, b) => a+b)}</td>
+                                <td>{cookie.hourly_sales.reduce((a, b) => a+b)}</td>
                             </tr>
                    )}
     
@@ -49,9 +51,9 @@ export default function ReportTable({ stands }) {
                     <tfoot>
                         <tr>
                             <td className="border-2">Totals</td>
-                                    {avgCookiesPerHour[0].avgCookiesPerHour.map((_,i) => {
+                                    {stands[0][0].hourly_sales.map((_,i) => {
     
-                                        const acum = stands[0].reduce((acc, cur) => acc + cur.avgCookiesPerHour[i], 0);
+                                        const acum = stands[0].reduce((acc, cur) => acc + cur.hourly_sales[i], 0);
                                         return(<td key={i+stands[0].length}>{acum}</td>)
                                     }
     
