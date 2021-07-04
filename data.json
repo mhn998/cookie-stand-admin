@@ -1,6 +1,6 @@
 [{
     "location": "Seattle",
-    "avgCookiesPerHour": [
+    "hourly_sales": [
         48,
         42,
         30,
